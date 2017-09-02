@@ -1,0 +1,15 @@
+{
+  "cpus": "1",
+  "memory": "1024",
+  "disk_size": "65536",
+
+  "iso_checksum": "ada01ed9db4c0ad63613c4d14e1463af7e9ba5eb9e455221a38af10cd77c9b16",
+  "iso_checksum_type": "sha256",
+  "iso_url": "https://kojipkgs.fedoraproject.org/compose//26/Fedora-26-20170705.0/compose/Workstation/x86_64/iso/Fedora-Workstation-ostree-x86_64-26-1.5.iso",
+
+  "install_vagrant_key": "false",
+  "virtualbox_guest_additions_mode": "disable",
+  "kickstart": "ks-fedora26-atomic-workstation.cfg",
+  "vagrantfile_template": "vagrantfile-fedora26-atomic-workstation.tpl",
+  "vm_name": "fedora26-atomic-workstation"
+}

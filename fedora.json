@@ -33,6 +33,7 @@
       ],
       "disk_size": "{{ user `disk_size` }}",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_mode": "{{ user `virtualbox_guest_additions_mode` }}",
       "guest_os_type": "{{ user `virtualbox_guest_os_type` }}",
       "headless": "{{ user `headless` }}",
       "http_directory": "http",
@@ -56,7 +57,8 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "{{ user `vm_name` }}"
+      "vm_name": "{{ user `vm_name` }}",
+      "post_shutdown_delay": "{{ user `virtualbox_post_shutdown_delay` }}"
     },
     {
       "boot_command": [
@@ -93,6 +95,7 @@
     {
       "keep_input_artifact": false,
       "output": "box/{{.Provider}}/{{ user `vm_name` }}-{{ user `version` }}.box",
+      "vagrantfile_template": "tpl/{{ user `vagrantfile_template` }}",
       "type": "vagrant"
     }
   ],
@@ -112,10 +115,7 @@
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
         "script/sshd.sh",
-        "script/update.sh",
         "script/vagrant.sh",
-        "script/virtualbox.sh",
-        "script/parallels.sh",
         "custom-script.sh",
         "script/cleanup.sh"
       ],
@@ -146,7 +146,7 @@
     "version": "0.1.0",
     "virtualbox_guest_os_type": "Fedora_64",
     "vm_name": null,
-    "vmware_guest_os_type": "fedora-64"
+    "vmware_guest_os_type": "fedora-64",
+    "virtualbox_post_shutdown_delay": "10s"
   }
 }
-
