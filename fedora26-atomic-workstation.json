@@ -11,5 +11,8 @@
   "virtualbox_guest_additions_mode": "disable",
   "kickstart": "ks-fedora26-atomic-workstation.cfg",
   "vagrantfile_template": "vagrantfile-fedora26-atomic-workstation.tpl",
-  "vm_name": "fedora26-atomic-workstation"
+  "vm_name": "fedora26-atomic-workstation",
+
+  "box_tag": "fkrull/fedora26-atomic-workstation",
+  "version_description": "Fedora 26 Atomic Workstation\n\nhttps://pagure.io/workstation-ostree-configs\n\nUsing updates from https://pagure.io/atomic-ws\n\nPacker config at https://github.com/fkrull/atomic-workstation"
 }

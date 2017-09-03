@@ -92,12 +92,20 @@
     }
   ],
   "post-processors": [
-    {
-      "keep_input_artifact": false,
-      "output": "box/{{.Provider}}/{{ user `vm_name` }}-{{ user `version` }}.box",
-      "vagrantfile_template": "tpl/{{ user `vagrantfile_template` }}",
-      "type": "vagrant"
-    }
+    [
+      {
+        "keep_input_artifact": false,
+        "output": "box/{{.Provider}}/{{ user `vm_name` }}-{{ user `version` }}.box",
+        "vagrantfile_template": "tpl/{{ user `vagrantfile_template` }}",
+        "type": "vagrant"
+      },
+      {
+        "type": "vagrant-cloud",
+        "box_tag": "{{ user `box_tag` }}",
+        "version": "{{ user `version` }}",
+        "version_description": "{{ user `version_description` }}"
+      }
+    ]
   ],
   "provisioners": [
     {
