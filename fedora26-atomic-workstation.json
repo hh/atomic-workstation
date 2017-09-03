@@ -10,7 +10,7 @@
   "install_vagrant_key": "false",
   "virtualbox_guest_additions_mode": "disable",
   "kickstart": "ks-fedora26-atomic-workstation.cfg",
-  "vagrantfile_template": "vagrantfile-fedora26-atomic-workstation.tpl",
+  "vagrantfile_template": "vagrantfile-atomic-workstation.tpl",
   "vm_name": "fedora26-atomic-workstation",
 
   "box_tag": "fkrull/fedora26-atomic-workstation",
