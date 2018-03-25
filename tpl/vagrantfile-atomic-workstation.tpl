@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
      v.customize ["setextradata", :id, "CustomVideoMode2", "1280x720x32"]
      v.customize ["modifyvm", :id, "--ioapic", "on"]
      v.customize ["modifyvm", :id, "--rtcuseutc", "on"]
-     v.customize ["modifyvm", :id, "--accelerate3d", "on"]
+     v.customize ["modifyvm", :id, "--accelerate3d", "off"]
      v.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
    end
 
