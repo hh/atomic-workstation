@@ -4,8 +4,9 @@ echo "==> Clear out machine id"
 rm -f /etc/machine-id
 touch /etc/machine-id
 
-echo "==> Cleaning up dnf cache of metadata and packages to save space"
-dnf -y clean all
+echo "==> Removing old deployment"
+ostree admin undeploy 1 || true
+ostree prune
 
 echo "==> Removing temporary files used to build box"
 rm -rf /tmp/*
