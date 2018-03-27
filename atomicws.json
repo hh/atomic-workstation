@@ -137,13 +137,14 @@
     "ssh_username": "vagrant",
     "install_vagrant_key": "true",
     "update": "false",
+    "virtualbox_guest_additions_mode": "disable",
 
     "vagrantfile_template": "vagrantfile-atomic-workstation.tpl",
     "headless": "",
     "parallels_guest_os_type": "fedora-core",
     "virtualbox_guest_os_type": "Fedora_64",
     "vmware_guest_os_type": "fedora-64",
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -h now",
+    "shutdown_command": "echo vagrant | sudo -S shutdown -h now",
     "virtualbox_post_shutdown_delay": "10s",
 
     "http_proxy": "{{env `http_proxy`}}",
