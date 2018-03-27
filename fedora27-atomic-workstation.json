@@ -1,0 +1,12 @@
+{
+  "iso_checksum": "92372716a0139f833b881f390475fe9eee4fada73aa24a363c7e106dd586235b",
+  "iso_checksum_type": "sha256",
+  "iso_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/27/WorkstationOstree/x86_64/iso/Fedora-WorkstationOstree-ostree-x86_64-27-1.6.iso",
+
+  "kickstart": "ks-fedora27-atomic-workstation.cfg",
+  "vm_name": "fedora27-atomic-workstation",
+
+  "box_tag": "fkrull/fedora27-atomic-workstation",
+  "version_description": "Fedora 27 Atomic Workstation\nhttps://fedoraproject.org/wiki/Workstation/AtomicWorkstation\nPacker config: https://github.com/fkrull/atomic-workstation",
+  "version": "27.20171105"
+}
