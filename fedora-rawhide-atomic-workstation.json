@@ -1,0 +1,11 @@
+{
+  "iso_checksum": "c0637541485d169d2ab1993cbb6b857a8b076fdb9b0977b57f64e841e1e0b20d",
+  "iso_checksum_type": "sha256",
+  "iso_url": "https://download.fedoraproject.org/pub/fedora/linux/development/rawhide/AtomicWorkstation/x86_64/iso/Fedora-AtomicWorkstation-ostree-x86_64-Rawhide-20180326.n.0.iso",
+
+  "kickstart": "ks-fedora-rawhide-atomic-workstation.cfg",
+  "vm_name": "fedora-rawhide-atomic-workstation",
+
+  "box_tag": "fkrull/fedora-rawhide-atomic-workstation",
+  "version_description": "Fedora Atomic Workstation\nhttps://fedoraproject.org/wiki/Workstation/AtomicWorkstation\nPacker config: https://github.com/fkrull/atomic-workstation"
+}
