@@ -1,0 +1,12 @@
+{
+  "iso_checksum": "62da5d162a32c540c3b1d00087b400a8d70d267b63ec5868c110075739067d87",
+  "iso_checksum_type": "sha256",
+  "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/development/28/AtomicWorkstation/x86_64/iso/Fedora-AtomicWorkstation-ostree-x86_64-28-20180327.n.0.iso",
+
+  "kickstart": "ks-fedora28-atomic-workstation.cfg",
+  "vm_name": "fedora28-atomic-workstation",
+
+  "box_tag": "fkrull/fedora28-atomic-workstation",
+  "version_description": "Fedora 28 Atomic Workstation\nhttps://fedoraproject.org/wiki/Workstation/AtomicWorkstation\nPacker config: https://github.com/fkrull/atomic-workstation",
+  "version": "28.20180327"
+}
