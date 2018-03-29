@@ -107,6 +107,7 @@
       "scripts": [
         "script/sshd.sh",
         "script/hostname.sh",
+        "script/graphical-target.sh",
         "script/vagrant.sh",
         "script/ostree-remote.sh"
       ],
