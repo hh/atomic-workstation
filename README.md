@@ -19,8 +19,6 @@ To only build boxes for a specific VM provider, use the `-only` parameter:
 The following virtualization providers are supported:
 
 * `virtualbox-iso` - [VirtualBox](https://www.virtualbox.org) desktop virtualization
-* `parallels-iso` - [Parallels](http://www.parallels.com/products/desktop/whats-new/) desktop virtualization (Requires the Pro Edition - Desktop edition won't work)
-* `vmware-iso` - [VMware Fusion](https://www.vmware.com/products/fusion) or [VMware Workstation](https://www.vmware.com/products/workstation) desktop virtualization
 
 ### Proxy Settings
 
