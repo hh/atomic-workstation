@@ -9,5 +9,5 @@
   "vm_name": "fedora26-atomic-workstation",
   "box_tag": "fkrull/fedora26-atomic-workstation",
   "version_description": "Fedora 26 Atomic Workstation\nhttps://pagure.io/workstation-ostree-configs\nPacker config: https://github.com/fkrull/atomic-workstation",
-  "version": "26.20170705"
+  "os_version": "26.1.5"
 }

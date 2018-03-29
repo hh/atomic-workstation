@@ -96,6 +96,7 @@
         "OSTREE_REMOTE={{user `ostree_remote`}}",
         "OSTREE_GPG_KEY={{user `ostree_gpg_key`}}",
         "HOSTNAME={{user `vm_name`}}",
+        "BOX_VERSION={{ user `os_version` }}-{{ user `box_version` }}",
 
         "http_proxy={{user `http_proxy`}}",
         "https_proxy={{user `https_proxy`}}",
@@ -151,15 +152,16 @@
     [
       {
         "keep_input_artifact": false,
-        "output": "box/{{.Provider}}/{{ user `vm_name` }}-{{ user `version` }}.box",
+        "output": "box/{{.Provider}}/{{ user `vm_name` }}-{{ user `os_version` }}-{{ user `box_version` }}.box",
         "vagrantfile_template": "tpl/{{ user `vagrantfile_template` }}",
         "type": "vagrant"
       },
       {
         "type": "vagrant-cloud",
-        "box_tag": "{{ if user `disable_upload` }}DISABLE_UPLOAD{{ end }}{{ user `box_tag` }}",
-        "version": "{{ user `version` }}",
-        "version_description": "{{ user `version_description` }}"
+        "box_tag": "{{ user `box_tag` }}",
+        "version": "{{ user `os_version` }}-{{ user `box_version` }}",
+        "version_description": "{{ user `version_description` }}",
+        "access_token": "{{ if user `disable_upload` }}DISABLE_UPLOAD{{ end }}"
       }
     ]
   ],
@@ -176,8 +178,8 @@
     "update": "false",
     "ostree_remote": "",
     "ostree_gpg_key": "",
-
     "vagrantfile_template": "vagrantfile.tpl",
+
     "headless": "",
     "parallels_guest_os_type": "fedora-core",
     "virtualbox_guest_os_type": "Fedora_64",

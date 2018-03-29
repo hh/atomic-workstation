@@ -10,5 +10,5 @@
   "vm_name": "fedora27-atomic-workstation",
   "box_tag": "fkrull/fedora27-atomic-workstation",
   "version_description": "Fedora 27 Atomic Workstation\nhttps://fedoraproject.org/wiki/Workstation/AtomicWorkstation\nPacker config: https://github.com/fkrull/atomic-workstation",
-  "version": "27.20171105"
+  "os_version": "27.1.6"
 }
