@@ -10,7 +10,7 @@ This repository contains Packer templates for Vagrant base boxes for Fedora Atom
 
 ## Building the Vagrant boxes with Packer
 
-    $ packer build -var-file=fedora26-atomic-workstation.json atomicws.json
+    $ packer build -var-file=fedora26-atomic-workstation.json -var-file=version.json atomicws.json
 
 To only build boxes for a specific VM provider, use the `-only` parameter:
 
