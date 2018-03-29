@@ -8,5 +8,5 @@
 
   "box_tag": "fkrull/fedora28-atomic-workstation",
   "version_description": "Fedora 28 Atomic Workstation\nhttps://fedoraproject.org/wiki/Workstation/AtomicWorkstation\nPacker config: https://github.com/fkrull/atomic-workstation",
-  "version": "28.20180327"
+  "version": "28.0.20180327"
 }

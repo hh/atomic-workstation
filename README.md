@@ -6,6 +6,7 @@ This repository contains Packer templates for Vagrant base boxes for Fedora Atom
 
 * [Fedora 26 Atomic Workstation](https://app.vagrantup.com/fkrull/boxes/fedora26-atomic-workstation)
 * [Fedora 27 Atomic Workstation](https://app.vagrantup.com/fkrull/boxes/fedora27-atomic-workstation)
+* [Fedora 28 Atomic Workstation](https://app.vagrantup.com/fkrull/boxes/fedora28-atomic-workstation)
 
 ## Building the Vagrant boxes with Packer
 
