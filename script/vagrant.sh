@@ -32,8 +32,9 @@ if [ "$INSTALL_VAGRANT_KEY" = "true" ] || [ "$INSTALL_VAGRANT_KEY" = "1" ]; then
   chown -R ${SSH_USER}:${SSH_USER} ${SSH_USER_HOME}/.ssh
 fi
 
-echo "==> Recording box config date"
+echo "==> Recording box config date and version"
 date > /etc/vagrant_box_build_time
+echo $BOX_VERSION > /etc/vagrant_box_version
 
 echo "==> Customizing message of the day"
 echo 'Welcome to your Packer-built virtual machine.' > /etc/motd
