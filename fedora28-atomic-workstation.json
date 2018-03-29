@@ -4,8 +4,10 @@
   "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/development/28/AtomicWorkstation/x86_64/iso/Fedora-AtomicWorkstation-ostree-x86_64-28-20180327.n.0.iso",
 
   "kickstart": "ks-fedora28-atomic-workstation.cfg",
-  "vm_name": "fedora28-atomic-workstation",
+  "ostree_remote": "https://kojipkgs.fedoraproject.org/atomic/repo/",
+  "ostree_gpg_key": "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-28-primary",
 
+  "vm_name": "fedora28-atomic-workstation",
   "box_tag": "fkrull/fedora28-atomic-workstation",
   "version_description": "Fedora 28 Atomic Workstation\nhttps://fedoraproject.org/wiki/Workstation/AtomicWorkstation\nPacker config: https://github.com/fkrull/atomic-workstation",
   "version": "28.0.20180327"
