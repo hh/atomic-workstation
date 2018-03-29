@@ -35,6 +35,3 @@ fi
 echo "==> Recording box config date and version"
 date > /etc/vagrant_box_build_time
 echo $BOX_VERSION > /etc/vagrant_box_version
-
-echo "==> Customizing message of the day"
-echo 'Welcome to your Packer-built virtual machine.' > /etc/motd
