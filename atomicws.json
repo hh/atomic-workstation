@@ -139,7 +139,7 @@
     "update": "false",
     "virtualbox_guest_additions_mode": "disable",
 
-    "vagrantfile_template": "vagrantfile-atomic-workstation.tpl",
+    "vagrantfile_template": "vagrantfile.tpl",
     "headless": "",
     "parallels_guest_os_type": "fedora-core",
     "virtualbox_guest_os_type": "Fedora_64",
