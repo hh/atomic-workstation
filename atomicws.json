@@ -154,7 +154,7 @@
       },
       {
         "type": "vagrant-cloud",
-        "box_tag": "{{ user `box_tag` }}",
+        "box_tag": "{{ if user `disable_upload` }}DISABLE_UPLOAD{{ end }}{{ user `box_tag` }}",
         "version": "{{ user `version` }}",
         "version_description": "{{ user `version_description` }}"
       }
@@ -166,6 +166,7 @@
     "memory": "1024",
     "disk_size": "65536",
 
+    "disable_upload": "",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
     "install_vagrant_key": "true",
