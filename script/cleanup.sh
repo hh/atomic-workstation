@@ -4,6 +4,9 @@ echo "==> Clear out machine id"
 rm -f /etc/machine-id
 touch /etc/machine-id
 
+echo "==> Clear out /sysroot"
+rm -rf /sysroot/etc /sysroot/var
+
 echo "==> Removing old deployment (if it exists)"
 ostree admin undeploy 1 || true
 ostree prune
