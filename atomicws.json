@@ -151,10 +151,10 @@
   "post-processors": [
     [
       {
+        "type": "vagrant",
         "keep_input_artifact": false,
-        "output": "box/{{.Provider}}/{{ user `vm_name` }}-{{ user `os_version` }}-{{ user `box_version` }}.box",
         "vagrantfile_template": "tpl/{{ user `vagrantfile_template` }}",
-        "type": "vagrant"
+        "output": "box/{{.Provider}}/{{ user `vm_name` }}-{{ user `os_version` }}-{{ user `box_version` }}.box"
       },
       {
         "type": "vagrant-cloud",
