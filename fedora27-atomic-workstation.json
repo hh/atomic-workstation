@@ -4,6 +4,7 @@
   "iso_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/27/WorkstationOstree/x86_64/iso/Fedora-WorkstationOstree-ostree-x86_64-27-1.6.iso",
 
   "kickstart": "ks-fedora27-atomic-workstation.cfg",
+  "ostree_remote_name": "atomicws",
   "ostree_remote": "https://dl.fedoraproject.org/ostree/27/",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-27-primary",
 

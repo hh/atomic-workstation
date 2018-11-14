@@ -176,6 +176,7 @@
     "ssh_username": "vagrant",
     "install_vagrant_key": "true",
     "update": "false",
+    "ostree_remote_name": "",
     "ostree_remote": "",
     "ostree_gpg_key": "",
     "vagrantfile_template": "vagrantfile.tpl",

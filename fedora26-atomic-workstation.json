@@ -4,6 +4,7 @@
   "iso_url": "https://kojipkgs.fedoraproject.org/compose//26/Fedora-26-20170705.0/compose/Workstation/x86_64/iso/Fedora-Workstation-ostree-x86_64-26-1.5.iso",
 
   "kickstart": "ks-fedora26-atomic-workstation.cfg",
+  "ostree_remote_name": "atomicws",
   "ostree_remote": "https://ci.centos.org/artifacts/sig-atomic/atomic-ws/ostree/repo",
 
   "vm_name": "fedora26-atomic-workstation",
