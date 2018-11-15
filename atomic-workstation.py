@@ -29,6 +29,14 @@ class _TemplatePart(JsonRepr):
         return self.__class__(**new_args)
 
 
+class _TemplateList(JsonRepr):
+    def __init__(self, *elems):
+        self.elems = [e for e in elems if e is not None]
+
+    def to_json(self):
+        return self.elems
+
+
 class Template(_TemplatePart):
     def __init__(self, *, post_processors=None, **args):
         super().__init__(**args)
@@ -40,22 +48,8 @@ class Builder(_TemplatePart): pass
 class Provisioner(_TemplatePart): pass
 class PostProcessor(_TemplatePart): pass
 class Variables(_TemplatePart): pass
-
-
-class Commands(JsonRepr):
-    def __init__(self, *args_list):
-        self.args_list = args_list
-
-    def to_json(self):
-        return self.args_list
-
-
-class FilterList(JsonRepr):
-    def __init__(self, *elems):
-        self.elems = [e for e in elems if e]
-
-    def to_json(self):
-        return self.elems
+class Commands(_TemplateList): pass
+class PostProcessorChain(_TemplateList): pass
 
 
 def Optional(present, value):
@@ -167,20 +161,22 @@ atomic_workstation = Template(
         ),
     ],
 
-    post_processors=FilterList(
-        PostProcessor(
-            type='vagrant',
-            keep_input_artifact=False,
-            vagrantfile_template='tpl/{{ user `vagrantfile_template` }}',
-            output='box/{{.Provider}}/{{ user `vm_name` }}-{{ user `os_version` }}-{{ user `box_version` }}.box',
+    post_processors=[
+        PostProcessorChain(
+            PostProcessor(
+                type='vagrant',
+                keep_input_artifact=False,
+                vagrantfile_template='tpl/{{ user `vagrantfile_template` }}',
+                output='box/{{.Provider}}/{{ user `vm_name` }}-{{ user `os_version` }}-{{ user `box_version` }}.box',
+            ),
+            Optional('upload' in sys.argv, PostProcessor(
+                type='vagrant-cloud',
+                box_tag='{{ user `box_tag` }}',
+                version='{{ user `os_version` }}-{{ user `box_version` }}',
+                version_description='{{ user `version_description` }}',
+            )),
         ),
-        Optional('upload' in sys.argv, PostProcessor(
-            type='vagrant-cloud',
-            box_tag='{{ user `box_tag` }}',
-            version='{{ user `os_version` }}-{{ user `box_version` }}',
-            version_description='{{ user `version_description` }}',
-        )),
-    ),
+    ],
 
     variables=Variables(
         cpus='2',
