@@ -1,24 +1,37 @@
-# Packer templates for Fedora Atomic Workstation
+# Packer Templates for Fedora Silverblue
 
-This repository contains Packer templates for Vagrant base boxes for Fedora Atomic Workstation.
+This repository contains Packer templates for Vagrant base boxes for [Fedora Silverblue](https://silverblue.fedoraproject.org/)
+(formerly Atomic Workstation).
 
 ## Current Boxes
 
-* [Fedora 26 Atomic Workstation](https://app.vagrantup.com/fkrull/boxes/fedora26-atomic-workstation)
 * [Fedora 27 Atomic Workstation](https://app.vagrantup.com/fkrull/boxes/fedora27-atomic-workstation)
 * [Fedora 28 Atomic Workstation](https://app.vagrantup.com/fkrull/boxes/fedora28-atomic-workstation)
 
-## Building the Vagrant boxes with Packer
+## Previous Boxes
 
-    $ packer build -var-file=fedora26-atomic-workstation.json -var-file=version.json atomicws.json
+* [Fedora 26 Atomic Workstation](https://app.vagrantup.com/fkrull/boxes/fedora26-atomic-workstation)
 
-To only build boxes for a specific VM provider, use the `-only` parameter:
+## Building
 
-    $ packer build -only=virtualbox-iso -var-file=fedora26-atomic-workstation.json atomicws.json
+Run `make` to build everything. The following more specific targets are also available:
 
-The following virtualization providers are supported:
+* **virtualbox/all** - build all boxes for the VirtualBox provider
+* **virtualbox/\<box name\>** - build a specific box; `<box name>` matches one of the config JSON files
 
-* `virtualbox-iso` - [VirtualBox](https://www.virtualbox.org) desktop virtualization
+Currently, only the [VirtualBox](https://www.virtualbox.org) provider is supported. There's some
+config for other providers still around, but it probably won't work out of the box.
+
+## Releasing
+
+By default, the box files are not uploaded. Pass `UPLOAD=upload` to make and set the
+`VAGRANT_CLOUD_TOKEN` environment variable to upload the box to Vagrant Cloud.
+
+The OS version is set in the vars file based on the version of the ISO. For example:
+`28.1.1` for the `Fedora-AtomicWorkstation-ostree-x86_64-28-1.1.iso` image.
+
+The box version in `version.json` is appended to the OS version. It can be incremented
+for other changes.
 
 ### Proxy Settings
 
