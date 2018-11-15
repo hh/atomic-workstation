@@ -117,6 +117,7 @@ atomic_workstation = Template(
         common_builder.copy(
             type='virtualbox-iso',
             guest_additions_mode='disable',
+            guest_os_type='{{ user `virtualbox_guest_os_type` }}',
             vboxmanage=Commands(
                 ['modifyvm', '{{ .Name }}', '--memory', '{{ user `memory` }}'],
                 ['modifyvm', '{{ .Name }}', '--cpus', '{{ user `cpus` }}'],
