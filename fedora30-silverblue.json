@@ -1,0 +1,15 @@
+{
+  "iso_checksum": "ad752f8abd603b91a6c690e905b920377c52c68affd42994f60f626b6e0d10af",
+  "iso_checksum_type": "sha256",
+  "iso_url": "https://download.fedoraproject.org/pub/fedora/linux/development/30/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-30-20190301.n.0.iso",
+
+  "kickstart": "ks-fedora30-silverblue.cfg",
+  "ostree_remote_name": "fedora-workstation",
+  "ostree_remote": "https://ostree.fedoraproject.org",
+  "ostree_gpg_key": "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary",
+
+  "vm_name": "fedora30-silverblue",
+  "box_tag": "fkrull/fedora30-silverblue",
+  "version_description": "Fedora 30 Silverblue\n\nhttps://silverblue.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation",
+  "os_version": "30.0.20190301"
+}

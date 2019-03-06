@@ -183,7 +183,6 @@ atomic_workstation = Template(
         memory='1024',
         disk_size='65536',
 
-        disable_upload='',
         ssh_password='vagrant',
         ssh_username='vagrant',
         install_vagrant_key='true',
