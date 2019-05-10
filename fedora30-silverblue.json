@@ -1,7 +1,7 @@
 {
-  "iso_checksum": "cdc667c4d90bc9f384ece18a0ab2cd761c1ca3a165341a415978a3e47515ae31",
+  "iso_checksum": "d00e9a77623faa5504537d63e4d4a1767dcd3e162fdfdced7ebc6cb1aac14936",
   "iso_checksum_type": "sha256",
-  "iso_url": "https://download.fedoraproject.org/pub/fedora/linux/development/30/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-30-20190427.n.0.iso",
+  "iso_url": "https://ftp.fau.de/fedora/linux//releases/30/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-30-1.2.iso",
 
   "kickstart": "ks-fedora30-silverblue.cfg",
   "ostree_remote_name": "fedora-workstation",
@@ -11,5 +11,5 @@
   "vm_name": "fedora30-silverblue",
   "box_tag": "fkrull/fedora30-silverblue",
   "version_description": "Fedora 30 Silverblue\n\nhttps://silverblue.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation",
-  "os_version": "30.0.20190427"
+  "os_version": "30.1.2"
 }
