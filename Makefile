@@ -11,10 +11,27 @@ ifeq ($(OS),Windows_NT)
 else
 	PYTHON := python3
 endif
+HYPERV_SWITCH :=
 
-all: virtualbox/all
+all: virtualbox hyperv
 
-virtualbox/all: $(foreach build,$(BUILDS),virtualbox/$(build))
+# VirtualBox
+virtualbox: $(foreach build,$(BUILDS),virtualbox/$(build))
 
 virtualbox/%:
-	$(PYTHON) $(TEMPLATE) $(UPLOAD) | $(PACKER) build -only=virtualbox-iso -var-file=$*.json -var-file=version.json -
+	$(PYTHON) $(TEMPLATE) $(UPLOAD) | $(PACKER) build \
+		-only=virtualbox-iso \
+		-var-file=$*.json \
+		-var-file=version.json \
+		-
+
+# Hyper-V
+hyperv: $(foreach build,$(BUILDS),hyperv/$(build))
+
+hyperv/%:
+	$(PYTHON) $(TEMPLATE) $(UPLOAD) | $(PACKER) build \
+		-only=hyperv-iso \
+		-var-file=$*.json \
+		-var-file=version.json \
+		-var "hyperv_switch=$(HYPERV_SWITCH)" \
+		-

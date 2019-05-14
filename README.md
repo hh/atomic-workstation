@@ -18,11 +18,25 @@ This repository contains Packer templates for Vagrant base boxes for [Fedora Sil
 
 Run `make` to build everything. The following more specific targets are also available:
 
-* **virtualbox/all** - build all boxes for the VirtualBox provider
-* **virtualbox/\<box name\>** - build a specific box; `<box name>` matches one of the config JSON files
+* **\<provider\>** - build all boxes for a specific provider
+* **\<provider\>/\<box name\>** - build a specific box; `<box name>` matches one of the config JSON files
 
-Currently, only the [VirtualBox](https://www.virtualbox.org) provider is supported. There's some
-config for other providers still around, but it probably won't work out of the box.
+The following providers are supported:
+
+* VirtualBox (**virtualbox**)
+* Hyper-V (**hyperv**) - experimental;
+
+#### Notes on Hyper-V
+
+Hyper-V requires a pre-configured switch with DHCP support; internet access is currently not
+required and is optional. The default switch does **not** work because the host's IP address is not
+detected correctly. You can either use an external switch connected to the primary network interface
+or an internal switch that has a DHCP server running on it.
+
+The name of the switch needs to be passed to the Makefile in the `HYPERV_SWITCH` variable:
+```
+$ make HYPERV_SWITCH=external-switch hyperv/all
+```
 
 ## Releasing
 
@@ -35,7 +49,7 @@ The OS version is set in the vars file based on the version of the ISO. For exam
 The box version in `version.json` is appended to the OS version. It can be incremented
 for other changes.
 
-### Proxy Settings
+## Proxy Settings
 
 The templates respect the following network proxy environment variables
 and forward them on to the virtual machine environment during the box creation

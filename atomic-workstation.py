@@ -63,7 +63,11 @@ class Environment(_TemplatePart):
 
 common_builder = Builder(
     boot_command=[
-        '<tab> linux text biosdevname=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `kickstart` }}<enter><enter>',
+        '<tab> '
+        'linux text biosdevname=0 '
+        'ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `kickstart` }}'
+        '<enter>'
+        '<enter>',
     ],
     disk_size='{{ user `disk_size` }}',
     headless='{{ user `headless` }}',
@@ -76,9 +80,10 @@ common_builder = Builder(
     ],
 
     shutdown_command='{{ user `shutdown_command` }}',
+    communicator='ssh',
     ssh_password='{{ user `ssh_password` }}',
     ssh_username='{{ user `ssh_username` }}',
-    ssh_wait_timeout='10000s',
+    ssh_timeout='10000s',
 )
 
 
@@ -110,7 +115,7 @@ atomic_workstation = Template(
         ),
         common_builder.copy(
             type='virtualbox-iso',
-            guest_additions_mode='disable',
+            guest_additions_mode='none',
             guest_os_type='{{ user `virtualbox_guest_os_type` }}',
             vboxmanage=Commands(
                 ['modifyvm', '{{ .Name }}', '--memory', '{{ user `memory` }}'],
@@ -118,6 +123,15 @@ atomic_workstation = Template(
             ),
             virtualbox_version_file='.vbox_version',
             post_shutdown_delay='{{ user `virtualbox_post_shutdown_delay` }}',
+        ),
+        common_builder.copy(
+            type='hyperv-iso',
+            disk_block_size=1,
+            cpus='{{ user `cpus` }}',
+            memory='{{ user `memory` }}',
+            enable_secure_boot=False,
+            generation=1,
+            switch_name='{{ user `hyperv_switch` }}',
         ),
         common_builder.copy(
             type='parallel-iso',
