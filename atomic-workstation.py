@@ -115,7 +115,7 @@ atomic_workstation = Template(
         ),
         common_builder.copy(
             type='virtualbox-iso',
-            guest_additions_mode='none',
+            guest_additions_mode='disable',
             guest_os_type='{{ user `virtualbox_guest_os_type` }}',
             vboxmanage=Commands(
                 ['modifyvm', '{{ .Name }}', '--memory', '{{ user `memory` }}'],
@@ -185,6 +185,7 @@ atomic_workstation = Template(
             ),
             Optional('upload' in sys.argv, PostProcessor(
                 type='vagrant-cloud',
+                access_token='{{ user `vagrant_cloud_token` }}',
                 box_tag='{{ user `box_tag` }}',
                 version='{{ user `os_version` }}-{{ user `box_version` }}',
                 version_description='{{ user `version_description` }}',
