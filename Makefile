@@ -1,4 +1,3 @@
-VAGRANT_CLOUD_TOKEN :=
 HYPERV_SWITCH :=
 
 PACKER := packer
@@ -17,18 +16,18 @@ define build_box
 		-only=$(2) \
 		-var-file=$(1).json \
 		-var-file=version.json \
+		-var-file=vagrant-cloud-token.json \
 		-var "hyperv_switch=$(HYPERV_SWITCH)" \
-		-var "vagrant_cloud_token=$(VAGRANT_CLOUD_TOKEN)" \
 		-
 endef
 
 # ----
 
-%: virtualbox/% hyperv/%
-	# need a line here?
-
-virtualbox/%:
+virtualbox/%: vagrant-cloud-token.json
 	$(call build_box,$*,virtualbox-iso)
 
-hyperv/%:
+hyperv/%: vagrant-cloud-token.json
 	$(call build_box,$*,hyperv-iso)
+
+vagrant-cloud-token.json:
+	$(PYTHON) -c "f = open('vagrant-cloud-token.json', 'w'); f.write('{\"vagrant_cloud_token\": \"\"}')"
