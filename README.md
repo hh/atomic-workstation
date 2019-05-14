@@ -16,15 +16,12 @@ This repository contains Packer templates for Vagrant base boxes for [Fedora Sil
 
 ## Building
 
-Run `make` to build everything. The following more specific targets are also available:
+Run `make` with the targets for the box you want to build:
 
-* **\<provider\>** - build all boxes for a specific provider
-* **\<provider\>/\<box name\>** - build a specific box; `<box name>` matches one of the config JSON files
-
-The following providers are supported:
-
-* VirtualBox (**virtualbox**)
-* Hyper-V (**hyperv**) - experimental;
+* `<boxname>` - build the box for all providers. `<boxname>` is the name of the variable file
+  without the extension.
+* `virtualbox/<boxname>` - build the given box for VirtualBox
+* `hyperv/<boxname>` - build the box for Hyper-V (experimental)
 
 #### Notes on Hyper-V
 
@@ -34,14 +31,19 @@ detected correctly. You can either use an external switch connected to the prima
 or an internal switch that has a DHCP server running on it.
 
 The name of the switch needs to be passed to the Makefile in the `HYPERV_SWITCH` variable:
+
 ```
 $ make HYPERV_SWITCH=external-switch hyperv/all
 ```
 
 ## Releasing
 
-By default, the box files are not uploaded. Pass `UPLOAD=upload` to make and set the
-`VAGRANT_CLOUD_TOKEN` environment variable to upload the box to Vagrant Cloud.
+By default, the box files are not uploaded. Call make with `UPLOAD=upload` and your Vagrant Cloud
+authentication token in the `VAGRANT_CLOUD_TOKEN` variable:
+
+```
+$ make UPLOAD=upload VAGRANT_CLOUD_TOKEN=<your authentication token> <target>
+```
 
 The OS version is set in the vars file based on the version of the ISO. For example:
 `28.1.1` for the `Fedora-AtomicWorkstation-ostree-x86_64-28-1.1.iso` image.

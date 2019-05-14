@@ -1,37 +1,34 @@
-BUILDS := \
-	fedora27-atomic-workstation \
-	fedora28-atomic-workstation \
-	fedora29-silverblue \
-	fedora30-silverblue
+VAGRANT_CLOUD_TOKEN :=
+HYPERV_SWITCH :=
 
-TEMPLATE := atomic-workstation.py
 PACKER := packer
 ifeq ($(OS),Windows_NT)
 	PYTHON := py -3
 else
 	PYTHON := python3
 endif
-HYPERV_SWITCH :=
 
-all: virtualbox hyperv
+TEMPLATE := atomic-workstation.py
 
-# VirtualBox
-virtualbox: $(foreach build,$(BUILDS),virtualbox/$(build))
+# ----
 
-virtualbox/%:
+define build_box
 	$(PYTHON) $(TEMPLATE) $(UPLOAD) | $(PACKER) build \
-		-only=virtualbox-iso \
-		-var-file=$*.json \
-		-var-file=version.json \
-		-
-
-# Hyper-V
-hyperv: $(foreach build,$(BUILDS),hyperv/$(build))
-
-hyperv/%:
-	$(PYTHON) $(TEMPLATE) $(UPLOAD) | $(PACKER) build \
-		-only=hyperv-iso \
-		-var-file=$*.json \
+		-only=$(2) \
+		-var-file=$(1).json \
 		-var-file=version.json \
 		-var "hyperv_switch=$(HYPERV_SWITCH)" \
+		-var "vagrant_cloud_token=$(VAGRANT_CLOUD_TOKEN)" \
 		-
+endef
+
+# ----
+
+%: virtualbox/% hyperv/%
+	# need a line here?
+
+virtualbox/%:
+	$(call build_box,$*,virtualbox-iso)
+
+hyperv/%:
+	$(call build_box,$*,hyperv-iso)
