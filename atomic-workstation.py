@@ -160,6 +160,7 @@ atomic_workstation = Template(
                 SSH_PASSWORD='{{ user `ssh_password` }}',
                 OSTREE_REMOTE_NAME='{{ user `ostree_remote_name` }}',
                 OSTREE_REMOTE='{{ user `ostree_remote` }}',
+                OSTREE_REMOTE_CONTENTURL='{{ user `ostree_remote_contenturl` }}',
                 OSTREE_GPG_KEY='{{ user `ostree_gpg_key` }}',
                 HOSTNAME='{{ user `vm_name` }}',
                 BOX_VERSION='{{ user `os_version` }}-{{ user `box_version` }}',
@@ -204,6 +205,7 @@ atomic_workstation = Template(
         update='false',
         ostree_remote_name='',
         ostree_remote='',
+        ostree_remote_contenturl='',
         ostree_gpg_key='',
         vagrantfile_template='vagrantfile.tpl',
 
