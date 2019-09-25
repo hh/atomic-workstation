@@ -10,6 +10,7 @@ This repository contains Packer templates for Vagrant base boxes for [Fedora Sil
 * [Fedora 28 Atomic Workstation](https://app.vagrantup.com/fkrull/boxes/fedora28-atomic-workstation)
 * [Fedora 29 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora29-silverblue)
 * [Fedora 30 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora30-silverblue)
+* [Fedora 31 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora31-silverblue)
 
 ## Building
 
