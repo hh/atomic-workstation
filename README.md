@@ -36,12 +36,12 @@ $ make HYPERV_SWITCH=external-switch hyperv/all
 ## Releasing
 
 By default, the box files are not uploaded. To do so, call make with `UPLOAD=upload` and add your
-Vagrant Cloud authentication token in the `vagrant-cloud-token.json` file.
+Vagrant Cloud authentication token in the `vagrant-cloud-token.json` file. Before uploading a
+box for the first time, it needs to be created in the [Vagrant Cloud web interface](https://app.vagrantup.com).
 
 The OS version is set in the vars file based on the version of the ISO. For example:
-`28.1.1` for the `Fedora-AtomicWorkstation-ostree-x86_64-28-1.1.iso` image.
-
-The box version in `version.json` is appended to the OS version. It can be incremented
+`28.1.1` for the `Fedora-AtomicWorkstation-ostree-x86_64-28-1.1.iso` image. The box
+version in `version.json` is appended to the OS version. It can be incremented
 for other changes.
 
 ## Proxy Settings
