@@ -1,7 +1,7 @@
 {
-  "iso_checksum": "e2fcd6812a8f84c39b21cc2801c5cf260c12fcaae4c73e269bff7d487d0cb90d",
+  "iso_checksum": "f9c0f35962f6a2a5b7ddd2c0b98c71cdf854c74afce84566eddc912cbfb9517b",
   "iso_checksum_type": "sha256",
-  "iso_url": "https://mirror.23media.com/fedora/linux/development/31/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-31-20190925.n.0.iso",
+  "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/31/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-31-1.9.iso",
 
   "kickstart": "ks-fedora31-silverblue.cfg",
   "ostree_remote": "https://ostree.fedoraproject.org",
@@ -12,5 +12,5 @@
   "vm_name": "fedora31-silverblue",
   "box_tag": "fkrull/fedora31-silverblue",
   "version_description": "Fedora 31 Silverblue\n\nhttps://silverblue.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation",
-  "os_version": "31.0.20190925"
+  "os_version": "31.1.9"
 }
