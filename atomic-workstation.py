@@ -74,7 +74,6 @@ common_builder = Builder(
     http_directory='http',
 
     iso_checksum='{{ user `iso_checksum` }}',
-    iso_checksum_type='{{ user `iso_checksum_type` }}',
     iso_urls=[
         '{{ user `iso_url` }}',
     ],
