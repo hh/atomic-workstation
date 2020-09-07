@@ -22,7 +22,7 @@ case "$?" in
 	*) exit 1 ;;
 esac
 set -e
-if [ "x${swapuuid}" != "x" ]; then
+if [ "x${swapuuid}" != "x" ] && [ -e "/dev/disk/by-uuid/$swapuuid" ]; then
     # Whiteout the swap partition to reduce box size
     # Swap is disabled till reboot
     swappart=$(readlink -f /dev/disk/by-uuid/$swapuuid)
