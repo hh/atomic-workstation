@@ -152,6 +152,7 @@ atomic_workstation = Template(
                 'script/graphical-target.sh',
                 'script/vagrant.sh',
                 'script/ostree-remote.sh',
+                'script/crypto-policies.sh',
             ],
             environment_vars=base_env.copy(
                 INSTALL_VAGRANT_KEY='{{ user `install_vagrant_key` }}',
@@ -161,6 +162,7 @@ atomic_workstation = Template(
                 OSTREE_REMOTE='{{ user `ostree_remote` }}',
                 OSTREE_REMOTE_CONTENTURL='{{ user `ostree_remote_contenturl` }}',
                 OSTREE_GPG_KEY='{{ user `ostree_gpg_key` }}',
+                CRYPTO_POLICY='{{ user `crypto_policy` }}',
                 HOSTNAME='{{ user `vm_name` }}',
                 BOX_VERSION='{{ user `os_version` }}-{{ user `box_version` }}',
             ),
@@ -207,6 +209,7 @@ atomic_workstation = Template(
         ostree_remote_contenturl='',
         ostree_gpg_key='',
         vagrantfile_template='vagrantfile.tpl',
+        crypto_policy='',
 
         headless='',
         parallels_guest_os_type='fedora-core',
