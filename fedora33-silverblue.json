@@ -8,7 +8,7 @@
   "ostree_remote_contenturl": "mirrorlist=https://ostree.fedoraproject.org/mirrorlist",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/",
   "crypto_policy": "DEFAULT:SHA1",
-  "vagrantfile_template": "vagrantfile.f33.tpl",
+  "vagrantfile_template": "vagrantfile.silverblue.f33.tpl",
 
   "vm_name": "fedora33-silverblue",
   "box_tag": "fkrull/fedora33-silverblue",

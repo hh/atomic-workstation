@@ -196,6 +196,8 @@ atomic_workstation = Template(
     ],
 
     variables=Variables(
+        box_version='1.2.0',
+
         cpus='2',
         memory='1024',
         disk_size='65536',
@@ -208,7 +210,7 @@ atomic_workstation = Template(
         ostree_remote='',
         ostree_remote_contenturl='',
         ostree_gpg_key='',
-        vagrantfile_template='vagrantfile.tpl',
+        vagrantfile_template='vagrantfile.silverblue.tpl',
         crypto_policy='',
 
         headless='',
