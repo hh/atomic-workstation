@@ -1,5 +1,5 @@
 HYPERV_SWITCH :=
-
+PACKER_ARGS :=
 PACKER := packer
 ifeq ($(OS),Windows_NT)
 	PYTHON := py -3
@@ -18,6 +18,7 @@ define build_box
 		-var-file=version.json \
 		-var-file=vagrant-cloud-token.json \
 		-var "hyperv_switch=$(HYPERV_SWITCH)" \
+		$(PACKER_ARGS) \
 		-
 endef
 
