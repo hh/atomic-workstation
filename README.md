@@ -1,7 +1,10 @@
-# Packer Templates for Fedora Silverblue
+# Packer Templates for OSTree-based Fedora boxes
 
-This repository contains Packer templates for Vagrant base boxes for [Fedora Silverblue](https://silverblue.fedoraproject.org/)
-(formerly Atomic Workstation).
+This repository contains Packer templates for Vagrant base boxes for some
+OSTree-based Fedora variants:
+
+* [Fedora Silverblue](https://silverblue.fedoraproject.org/) (formerly Atomic Workstation)
+* [Fedora IoT](https://iot.fedoraproject.org/)
 
 ## Current Boxes
 
