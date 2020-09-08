@@ -7,6 +7,8 @@ else
 	PYTHON := python3
 endif
 
+TEMPLATE := atomic.py
+
 # ----
 
 define build_box
@@ -21,11 +23,11 @@ endef
 
 # ----
 
-virtualbox/silverblue/%: vagrant-cloud-token.json
-	$(call build_box,$*,virtualbox-iso,atomic-workstation.py)
+virtualbox/%: vagrant-cloud-token.json
+	$(call build_box,$*,virtualbox-iso,$(TEMPLATE))
 
-hyperv/silverblue/%: vagrant-cloud-token.json
-	$(call build_box,$*,hyperv-iso,atomic-workstation.py)
+hyperv/%: vagrant-cloud-token.json
+	$(call build_box,$*,hyperv-iso,$(TEMPLATE))
 
 vagrant-cloud-token.json:
 	$(PYTHON) -c "f = open('vagrant-cloud-token.json', 'w'); f.write('{\"vagrant_cloud_token\": \"\"}')"

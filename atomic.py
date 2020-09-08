@@ -101,7 +101,7 @@ base_env = Environment(
 )
 
 
-atomic_workstation = Template(
+atomic = Template(
     builders=[
         common_builder.copy(
             type='vmware-iso',
@@ -149,7 +149,7 @@ atomic_workstation = Template(
             scripts=[
                 'script/sshd.sh',
                 'script/hostname.sh',
-                'script/graphical-target.sh',
+                'script/systemd-target.sh',
                 'script/vagrant.sh',
                 'script/ostree-remote.sh',
                 'script/crypto-policies.sh',
@@ -163,6 +163,7 @@ atomic_workstation = Template(
                 OSTREE_REMOTE_CONTENTURL='{{ user `ostree_remote_contenturl` }}',
                 OSTREE_GPG_KEY='{{ user `ostree_gpg_key` }}',
                 CRYPTO_POLICY='{{ user `crypto_policy` }}',
+                SYSTEMD_TARGET='{{ user `systemd_target` }}',
                 HOSTNAME='{{ user `vm_name` }}',
                 BOX_VERSION='{{ user `os_version` }}-{{ user `box_version` }}',
             ),
@@ -212,6 +213,7 @@ atomic_workstation = Template(
         ostree_gpg_key='',
         vagrantfile_template='vagrantfile.silverblue.tpl',
         crypto_policy='',
+        systemd_target='graphical.target',
 
         headless='',
         parallels_guest_os_type='fedora-core',
@@ -231,4 +233,4 @@ atomic_workstation = Template(
 
 if __name__ == '__main__':
     e = JsonReprEncoder(indent=2)
-    print(e.encode(atomic_workstation))
+    print(e.encode(atomic))
