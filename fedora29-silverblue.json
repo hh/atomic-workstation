@@ -6,6 +6,8 @@
   "ostree_remote_name": "fedora-workstation",
   "ostree_remote": "https://kojipkgs.fedoraproject.org/atomic/repo/",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-29-primary",
+  "vagrantfile_template": "vagrantfile.silverblue.tpl",
+  "systemd_target": "graphical.target",
 
   "vm_name": "fedora29-silverblue",
   "box_tag": "fkrull/fedora29-silverblue",

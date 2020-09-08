@@ -7,6 +7,8 @@
   "ostree_remote_name": "fedora",
   "ostree_remote_contenturl": "mirrorlist=https://ostree.fedoraproject.org/mirrorlist",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/",
+  "vagrantfile_template": "vagrantfile.silverblue.tpl",
+  "systemd_target": "graphical.target",
 
   "vm_name": "fedora31-silverblue",
   "box_tag": "fkrull/fedora31-silverblue",

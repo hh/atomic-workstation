@@ -6,6 +6,8 @@
   "ostree_remote_name": "fedora-workstation",
   "ostree_remote": "https://ostree.fedoraproject.org",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary",
+  "vagrantfile_template": "vagrantfile.silverblue.tpl",
+  "systemd_target": "graphical.target",
 
   "vm_name": "fedora30-silverblue",
   "box_tag": "fkrull/fedora30-silverblue",

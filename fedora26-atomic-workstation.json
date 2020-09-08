@@ -5,6 +5,8 @@
   "kickstart": "ks-fedora26-atomic-workstation.cfg",
   "ostree_remote_name": "atomicws",
   "ostree_remote": "https://ci.centos.org/artifacts/sig-atomic/atomic-ws/ostree/repo",
+  "vagrantfile_template": "vagrantfile.silverblue.tpl",
+  "systemd_target": "graphical.target",
 
   "vm_name": "fedora26-atomic-workstation",
   "box_tag": "fkrull/fedora26-atomic-workstation",

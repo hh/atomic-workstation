@@ -9,6 +9,7 @@
   "ostree_gpg_key": "/etc/pki/rpm-gpg/",
   "crypto_policy": "DEFAULT:SHA1",
   "vagrantfile_template": "vagrantfile.silverblue.f33.tpl",
+  "systemd_target": "graphical.target",
 
   "vm_name": "fedora33-silverblue",
   "box_tag": "fkrull/fedora33-silverblue",

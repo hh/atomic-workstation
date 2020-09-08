@@ -6,6 +6,8 @@
   "ostree_remote_name": "atomicws",
   "ostree_remote": "https://kojipkgs.fedoraproject.org/atomic/repo/",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-28-primary",
+  "vagrantfile_template": "vagrantfile.silverblue.tpl",
+  "systemd_target": "graphical.target",
 
   "vm_name": "fedora28-atomic-workstation",
   "box_tag": "fkrull/fedora28-atomic-workstation",

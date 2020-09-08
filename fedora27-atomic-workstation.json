@@ -6,6 +6,8 @@
   "ostree_remote_name": "atomicws",
   "ostree_remote": "https://dl.fedoraproject.org/ostree/27/",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-27-primary",
+  "vagrantfile_template": "vagrantfile.silverblue.tpl",
+  "systemd_target": "graphical.target",
 
   "vm_name": "fedora27-atomic-workstation",
   "box_tag": "fkrull/fedora27-atomic-workstation",

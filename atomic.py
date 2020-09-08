@@ -211,9 +211,9 @@ atomic = Template(
         ostree_remote='',
         ostree_remote_contenturl='',
         ostree_gpg_key='',
-        vagrantfile_template='vagrantfile.silverblue.tpl',
+        vagrantfile_template='',
         crypto_policy='',
-        systemd_target='graphical.target',
+        systemd_target='',
 
         headless='',
         parallels_guest_os_type='fedora-core',
