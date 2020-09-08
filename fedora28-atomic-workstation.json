@@ -1,6 +1,6 @@
 {
   "iso_checksum": "sha256:3c57cef9cc85e73d6ecac1f7ebdb84cd9b6f2420da0667b112ce8cf20c5404b6",
-  "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/28/AtomicWorkstation/x86_64/iso/Fedora-AtomicWorkstation-ostree-x86_64-28-1.1.iso",
+  "iso_url": "https://archives.fedoraproject.org/pub/archive/fedora/linux/releases/28/AtomicWorkstation/x86_64/iso/Fedora-AtomicWorkstation-ostree-x86_64-28-1.1.iso",
 
   "kickstart": "ks-fedora28-atomic-workstation.cfg",
   "ostree_remote_name": "atomicws",

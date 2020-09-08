@@ -1,6 +1,6 @@
 {
   "iso_checksum": "sha256:0167e4c08b188c623023e0eac259e29a46450cabb3dc1a495cf62ae249360129",
-  "iso_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/29/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-29-1.2.iso",
+  "iso_url": "https://archives.fedoraproject.org/pub/archive/fedora/linux/releases/29/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-29-1.2.iso",
 
   "kickstart": "ks-fedora29-silverblue.cfg",
   "ostree_remote_name": "fedora-workstation",
