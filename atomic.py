@@ -149,6 +149,7 @@ atomic = Template(
             scripts=[
                 'script/sshd.sh',
                 'script/hostname.sh',
+                'script/virtualbox.sh',
                 'script/systemd-target.sh',
                 'script/vagrant.sh',
                 'script/ostree-remote.sh',
@@ -156,6 +157,7 @@ atomic = Template(
             ],
             environment_vars=base_env.copy(
                 INSTALL_VAGRANT_KEY='{{ user `install_vagrant_key` }}',
+                INSTALL_GUEST_ADDITIONS='{{ user `install_guest_additions` }}',
                 SSH_USERNAME='{{ user `ssh_username` }}',
                 SSH_PASSWORD='{{ user `ssh_password` }}',
                 OSTREE_REMOTE_NAME='{{ user `ostree_remote_name` }}',
@@ -206,6 +208,7 @@ atomic = Template(
         ssh_password='vagrant',
         ssh_username='vagrant',
         install_vagrant_key='true',
+        install_guest_additions='false',
         update='false',
         ostree_remote_name='',
         ostree_remote='',
