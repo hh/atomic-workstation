@@ -1,17 +1,18 @@
 {
-  "iso_checksum": "sha256:99cb472b6c957cba6337347a18207296db51acc20d53e7ba1050e368a2ef12d9",
-  "iso_url": "https://dl.fedoraproject.org/pub/alt/iot/33/IoT/x86_64/iso/Fedora-IoT-IoT-ostree-x86_64-33-20201102.0.iso",
+  "iso_checksum": "sha256:2d8883173b8ccfa26cda745e4b27ba14eb97472793655036631c9681b0e63aec",
+  "iso_url": "https://dl.fedoraproject.org/pub/alt/iot/33/IoT/x86_64/iso/Fedora-IoT-IoT-ostree-x86_64-33-20210214.0.iso",
 
   "kickstart": "ks-fedora-iot.cfg",
   "ostree_remote": "https://ostree.fedoraproject.org/iot",
   "ostree_remote_name": "fedora-iot",
   "ostree_remote_contenturl": "mirrorlist=https://ostree.fedoraproject.org/iot/mirrorlist",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/",
+  "crypto_policy": "DEFAULT:SHA1",
   "vagrantfile_template": "vagrantfile.iot.tpl",
   "install_guest_additions": "true",
 
   "vm_name": "fedora-iot",
   "box_tag": "fkrull/fedora-iot",
   "version_description": "Fedora IoT\n\nhttps://iot.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation",
-  "os_version": "33.20201102.0"
+  "os_version": "33.20210214.0"
 }
