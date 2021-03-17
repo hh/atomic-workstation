@@ -7,8 +7,8 @@ touch /etc/machine-id
 echo "==> Clear out /sysroot"
 rm -rf /sysroot/etc /sysroot/var
 
-echo "==> Removing old deployment (if it exists)"
-ostree admin undeploy 1 || true
+echo "==> Removing old deployments"
+rpm-ostree cleanup --base --rollback --repomd
 ostree prune
 
 echo "==> Removing temporary files used to build box"

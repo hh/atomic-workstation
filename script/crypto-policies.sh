@@ -5,6 +5,7 @@ if [ "x${CRYPTO_POLICY}" != "x" ]; then
         rpm-ostree install crypto-policies-scripts
         rpm-ostree ex livefs
     fi
+
     echo "==> Setting system crypto policy"
     update-crypto-policies --set ${CRYPTO_POLICY}
 fi

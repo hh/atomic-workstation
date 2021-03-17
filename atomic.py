@@ -65,7 +65,7 @@ common_builder = Builder(
     boot_command=[
         '<tab> '
         'linux text biosdevname=0 '
-        'ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `kickstart` }}'
+        'inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `kickstart` }}'
         '<enter>'
         '<enter>',
     ],
@@ -171,12 +171,16 @@ atomic = Template(
             ),
         ),
         shell_provisioner.copy(
-            scripts=['script/update.sh'],
-            environment_vars=base_env.copy(UPDATE='{{ user `update`}}'),
-            expect_disconnect=True,
+            scripts=['custom-script.sh'],
         ),
         shell_provisioner.copy(
-            scripts=['custom-script.sh', 'script/cleanup.sh'],
+            scripts=['script/reboot.sh'],
+            environment_vars=base_env,
+            expect_disconnect=True,
+            pause_after='1m'
+        ),
+        shell_provisioner.copy(
+            scripts=['script/cleanup.sh'],
         ),
     ],
 
@@ -199,7 +203,7 @@ atomic = Template(
     ],
 
     variables=Variables(
-        box_version='1.2.0',
+        box_version='1.3.0',
 
         cpus='2',
         memory='1024',
@@ -209,7 +213,6 @@ atomic = Template(
         ssh_username='vagrant',
         install_vagrant_key='true',
         install_guest_additions='false',
-        update='false',
         ostree_remote_name='',
         ostree_remote='',
         ostree_remote_contenturl='',
