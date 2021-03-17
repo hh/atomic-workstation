@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 if [ "x${CRYPTO_POLICY}" != "x" ]; then
-    if [ ! $(which update-crypto-policies > /dev/null) ]; then
+    if ! $(type update-crypto-policies &> /dev/null); then
         echo "==> Installing crypto-policies-scripts"
         rpm-ostree install crypto-policies-scripts
         rpm-ostree ex livefs
