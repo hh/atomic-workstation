@@ -82,7 +82,7 @@ common_builder = Builder(
     communicator='ssh',
     ssh_password='{{ user `ssh_password` }}',
     ssh_username='{{ user `ssh_username` }}',
-    ssh_timeout='10000s',
+    ssh_timeout='30m',
 )
 
 
@@ -177,7 +177,7 @@ atomic = Template(
             scripts=['script/reboot.sh'],
             environment_vars=base_env,
             expect_disconnect=True,
-            pause_after='1m'
+            pause_after='2m'
         ),
         shell_provisioner.copy(
             scripts=['script/cleanup.sh'],
