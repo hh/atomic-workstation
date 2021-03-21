@@ -8,6 +8,7 @@ echo "==> Clear out /sysroot"
 rm -rf /sysroot/etc /sysroot/var
 
 echo "==> Removing old deployments"
+while ostree admin undeploy 1; do true; done
 rpm-ostree cleanup --base --rollback --repomd
 ostree prune
 
@@ -27,7 +28,7 @@ if [ "x${swapuuid}" != "x" ] && [ -e "/dev/disk/by-uuid/$swapuuid" ]; then
     # Swap is disabled till reboot
     swappart=$(readlink -f /dev/disk/by-uuid/$swapuuid)
     /sbin/swapoff "${swappart}"
-    dd if=/dev/zero of="${swappart}" bs=1M || echo "dd exit code $? is suppressed"
+    dd if=/dev/zero of="${swappart}" bs=16M || echo "dd exit code $? is suppressed"
     /sbin/mkswap -U "${swapuuid}" "${swappart}"
 fi
 
@@ -35,7 +36,7 @@ echo "==> Zeroing out empty area to save space in the final image"
 # Zero out the free space to save space in the final image.  Contiguous
 # zeroed space compresses down to nothing.
 EMPTY=/var/EMPTY
-dd if=/dev/zero of=${EMPTY} bs=1M || echo "dd exit code $? is suppressed"
+dd if=/dev/zero of=${EMPTY} bs=16M || echo "dd exit code $? is suppressed"
 rm -f ${EMPTY}
 
 # Block until the empty file has been removed, otherwise, Packer

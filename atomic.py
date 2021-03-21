@@ -82,7 +82,7 @@ common_builder = Builder(
     communicator='ssh',
     ssh_password='{{ user `ssh_password` }}',
     ssh_username='{{ user `ssh_username` }}',
-    ssh_timeout='30m',
+    ssh_timeout='60m',
 )
 
 
@@ -120,6 +120,8 @@ atomic = Template(
                 ['modifyvm', '{{ .Name }}', '--memory', '{{ user `memory` }}'],
                 ['modifyvm', '{{ .Name }}', '--cpus', '{{ user `cpus` }}'],
             ),
+            hard_drive_discard=True,
+            hard_drive_nonrotational=True,
             virtualbox_version_file='.vbox_version',
             post_shutdown_delay='{{ user `virtualbox_post_shutdown_delay` }}',
         ),
@@ -177,7 +179,7 @@ atomic = Template(
             scripts=['script/reboot.sh'],
             environment_vars=base_env,
             expect_disconnect=True,
-            pause_after='2m'
+            pause_after='1m'
         ),
         shell_provisioner.copy(
             scripts=['script/cleanup.sh'],
