@@ -119,6 +119,7 @@ atomic = Template(
             vboxmanage=Commands(
                 ['modifyvm', '{{ .Name }}', '--memory', '{{ user `memory` }}'],
                 ['modifyvm', '{{ .Name }}', '--cpus', '{{ user `cpus` }}'],
+                ['modifyvm', '{{ .Name }}', '--graphicscontroller', 'vmsvga'],
             ),
             hard_drive_discard=True,
             hard_drive_nonrotational=True,
@@ -205,7 +206,7 @@ atomic = Template(
     ],
 
     variables=Variables(
-        box_version='1.3.0',
+        box_version='1.4.0',
 
         cpus='2',
         memory='1024',
