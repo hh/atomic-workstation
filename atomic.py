@@ -64,7 +64,7 @@ class Environment(_TemplatePart):
 common_builder = Builder(
     boot_command=[
         '<tab> '
-        'linux text biosdevname=0 '
+        'linux biosdevname=0 inst.text '
         'inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `kickstart` }}'
         '<enter>'
         '<enter>',

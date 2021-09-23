@@ -17,6 +17,7 @@ OSTree-based Fedora variants:
 * [Fedora 32 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora32-silverblue)
 * [Fedora 33 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora33-silverblue)
 * [Fedora 34 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora34-silverblue)
+* [Fedora 35 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora35-silverblue)
 * [Fedora IoT](https://app.vagrantup.com/fkrull/boxes/fedora-iot)
 
 ## Building
