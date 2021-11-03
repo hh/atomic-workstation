@@ -4,6 +4,7 @@ This repository contains Packer templates for Vagrant base boxes for some
 OSTree-based Fedora variants:
 
 * [Fedora Silverblue](https://silverblue.fedoraproject.org/) (formerly Atomic Workstation)
+* [Fedora Kinoite](https://kinoite.fedoraproject.org/)
 * [Fedora IoT](https://iot.fedoraproject.org/)
 
 ## Current Boxes
@@ -18,6 +19,7 @@ OSTree-based Fedora variants:
 * [Fedora 33 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora33-silverblue)
 * [Fedora 34 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora34-silverblue)
 * [Fedora 35 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora35-silverblue)
+* [Fedora 35 Kinoite](https://app.vagrantup.com/fkrull/boxes/fedora35-kinoite)
 * [Fedora IoT](https://app.vagrantup.com/fkrull/boxes/fedora-iot)
 
 ## Building

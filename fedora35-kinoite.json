@@ -1,0 +1,18 @@
+{
+  "iso_checksum": "sha256:76a2b19ae9b49a6647c8b7cda37f6002c109d89771c3b673498d19974c0626a0",
+  "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/35/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-35-1.2.iso",
+
+  "kickstart": "ks-fedora35-kinoite.cfg",
+  "ostree_remote": "https://ostree.fedoraproject.org",
+  "ostree_remote_name": "fedora",
+  "ostree_remote_contenturl": "mirrorlist=https://ostree.fedoraproject.org/mirrorlist",
+  "ostree_gpg_key": "/etc/pki/rpm-gpg/",
+  "crypto_policy": "DEFAULT:SHA1",
+  "vagrantfile_template": "vagrantfile.silverblue.f33.tpl",
+  "systemd_target": "graphical.target",
+
+  "vm_name": "fedora35-kinoite",
+  "box_tag": "fkrull/fedora35-kinoite",
+  "version_description": "Fedora 35 Kinoite\n\nhttps://kinoite.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation",
+  "os_version": "35.1.2"
+}
