@@ -47,7 +47,7 @@ source "virtualbox-iso" "virtualbox" {
 }
 
 build {
-  name = var.vm_name
+name = var.vm_name
 
   sources = [
     "source.hyperv-iso.hyperv",
@@ -87,11 +87,6 @@ build {
   }
 
   provisioner "shell" {
-    execute_command = local.execute_command
-    script          = "custom-script.sh"
-  }
-
-  provisioner "shell" {
     execute_command   = local.execute_command
     expect_disconnect = true
     pause_after       = "1m"
@@ -111,14 +106,14 @@ build {
     }
 
     dynamic "post-processor" {
-      for_each = [for upload in [var.vagrant_cloud_upload] : upload if upload]
-      labels   = ["vagrant-cloud"]
-      content {
-        box_tag             = "${var.vagrant_cloud_user}/${var.vm_name}"
-        version             = "${var.os_version}-${var.box_version}"
-        version_description = var.version_description
-        access_token        = var.vagrant_cloud_token
-      }
+        for_each = [for upload in [var.vagrant_cloud_upload]: upload if token != null]
+            labels = ["vagrant-cloud"]
+        content {
+box_tag             = "${var.vagrant_cloud_user}/${var.vm_name}"
+      version             = "${var.os_version}-${var.box_version}"
+      version_description = var.version_description
+      access_token        = var.vagrant_cloud_token
+        }
     }
   }
 }
