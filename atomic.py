@@ -104,15 +104,6 @@ base_env = Environment(
 atomic = Template(
     builders=[
         common_builder.copy(
-            type='vmware-iso',
-            guest_os_type='{{ user `vmware_guest_os_type` }}',
-            vmx_data={
-                'cpuid.coresPerSocket': '1',
-                'memsize': '{{ user `memory` }}',
-                'numvcpus': '{{ user `cpus` }}',
-            },
-        ),
-        common_builder.copy(
             type='virtualbox-iso',
             guest_additions_mode='disable',
             guest_os_type='{{ user `virtualbox_guest_os_type` }}',
@@ -134,16 +125,6 @@ atomic = Template(
             enable_secure_boot=False,
             generation=1,
             switch_name='{{ user `hyperv_switch` }}',
-        ),
-        common_builder.copy(
-            type='parallel-iso',
-            guest_os_type='{{ user `parallels_guest_os_type` }}',
-            parallels_tools_flavor='lin',
-            prlctl=Commands(
-                ['set', '{{ .Name }}', '--memsize', '{{ user `memory` }}'],
-                ['set', '{{ .Name }}', '--cpus', '{{ user `cpus` }}'],
-            ),
-            prlctl_version_file='.prlctl_version',
         )
     ],
 
@@ -225,9 +206,7 @@ atomic = Template(
         systemd_target='',
 
         headless='',
-        parallels_guest_os_type='fedora-core',
         virtualbox_guest_os_type='Fedora_64',
-        vmware_guest_os_type='fedora-64',
         shutdown_command='echo vagrant | sudo -S shutdown -h now',
         virtualbox_post_shutdown_delay='10s',
 
