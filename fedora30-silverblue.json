@@ -6,11 +6,10 @@
   "ostree_remote_name": "fedora-workstation",
   "ostree_remote": "https://ostree.fedoraproject.org",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary",
-  "vagrantfile_template": "vagrantfile.silverblue.tpl",
+  "vagrantfile_template": "tpl/vagrantfile.silverblue.tpl",
   "systemd_target": "graphical.target",
 
   "vm_name": "fedora30-silverblue",
-  "box_tag": "fkrull/fedora30-silverblue",
   "version_description": "Fedora 30 Silverblue\n\nhttps://silverblue.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation",
   "os_version": "30.1.2"
 }

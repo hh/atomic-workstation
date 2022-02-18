@@ -8,11 +8,10 @@
   "ostree_remote_contenturl": "mirrorlist=https://ostree.fedoraproject.org/mirrorlist",
   "ostree_gpg_key": "/etc/pki/rpm-gpg/",
   "crypto_policy": "DEFAULT:SHA1",
-  "vagrantfile_template": "vagrantfile.silverblue.f33.tpl",
+  "vagrantfile_template": "tpl/vagrantfile.silverblue.f33.tpl",
   "systemd_target": "graphical.target",
 
   "vm_name": "fedora33-silverblue",
-  "box_tag": "fkrull/fedora33-silverblue",
   "version_description": "Fedora 33 Silverblue\n\nhttps://silverblue.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation",
   "os_version": "33.1.2"
 }
