@@ -1,5 +1,3 @@
 packer_cache/
-output-*/
-box/
-
+output/
 vagrant-cloud-token.json

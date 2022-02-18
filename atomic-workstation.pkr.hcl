@@ -21,6 +21,7 @@ source "hyperv-iso" "hyperv" {
   ssh_password       = var.ssh_password
   ssh_timeout        = "60m"
   ssh_username       = var.ssh_username
+  output_directory = "output/build/${source.name}"
   #switch_name        = var.hyperv_switch
 }
 
@@ -44,10 +45,11 @@ source "virtualbox-iso" "virtualbox" {
   ssh_timeout              = "60m"
   ssh_username             = var.ssh_username
   virtualbox_version_file  = ".vbox_version"
+  output_directory = "output/build/${source.name}"
 }
 
 build {
-name = var.vm_name
+  name = var.vm_name
 
   sources = [
     "source.hyperv-iso.hyperv",
@@ -102,18 +104,18 @@ name = var.vm_name
     post-processor "vagrant" {
       keep_input_artifact  = false
       vagrantfile_template = var.vagrantfile_template
-      output               = "box/${source.name}/${var.vm_name}-${var.os_version}-${var.box_version}.box"
+      output               = "output/${source.name}/${var.vm_name}-${var.os_version}-${var.box_version}.box"
     }
 
     dynamic "post-processor" {
-        for_each = [for upload in [var.vagrant_cloud_upload]: upload if token != null]
-            labels = ["vagrant-cloud"]
-        content {
-box_tag             = "${var.vagrant_cloud_user}/${var.vm_name}"
-      version             = "${var.os_version}-${var.box_version}"
-      version_description = var.version_description
-      access_token        = var.vagrant_cloud_token
-        }
+      for_each = [for upload in [var.vagrant_cloud_upload] : upload if upload]
+      labels   = ["vagrant-cloud"]
+      content {
+        box_tag             = "${var.vagrant_cloud_user}/${var.vm_name}"
+        version             = "${var.os_version}-${var.box_version}"
+        version_description = var.version_description
+        access_token        = var.vagrant_cloud_token
+      }
     }
   }
 }
