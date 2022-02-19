@@ -1,7 +1,7 @@
 variable "box_version" {
   type        = string
   description = "Box version"
-  default     = "1.4.0"
+  default     = "1.4.1"
 }
 
 variable "vm_name" {
