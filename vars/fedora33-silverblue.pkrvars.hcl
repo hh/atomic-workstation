@@ -1,0 +1,15 @@
+vm_name = "fedora33-silverblue"
+version_description = "Fedora 33 Silverblue\n\nhttps://silverblue.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation"
+
+os_version = "33.1.2"
+iso_checksum = "sha256:093cc7e62687c028975ad431e10243d52e0535f2e0546e0eed0340a2796a977b"
+iso_url = "https://dl.fedoraproject.org/pub/fedora/linux/releases/33/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-33-1.2.iso"
+
+kickstart = "ks-fedora33-silverblue.cfg"
+ostree_remote = "https://ostree.fedoraproject.org"
+ostree_remote_name = "fedora"
+ostree_remote_contenturl = "mirrorlist=https://ostree.fedoraproject.org/mirrorlist"
+ostree_gpg_key = "/etc/pki/rpm-gpg/"
+crypto_policy = "DEFAULT:SHA1"
+vagrantfile_template = "tpl/vagrantfile.silverblue.f33.tpl"
+systemd_target = "graphical.target"
