@@ -21,7 +21,7 @@ source "hyperv-iso" "hyperv" {
   output_directory     = "output/build/${source.name}"
   guest_additions_mode = "disable"
 
-  generation      = 2
+  generation      = 1
   disk_block_size = 1
   switch_name     = var.hyperv_switch
 }
