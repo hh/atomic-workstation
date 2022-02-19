@@ -29,7 +29,7 @@ variable "vagrant_cloud_upload" {
 variable "vagrant_cloud_user" {
   type        = string
   description = "Vagrant Cloud user"
-  default     = "fkrull"
+  default     = null
 }
 
 variable "vagrant_cloud_token" {

@@ -21,7 +21,7 @@ source "hyperv-iso" "hyperv" {
   ssh_password       = var.ssh_password
   ssh_timeout        = "60m"
   ssh_username       = var.ssh_username
-  output_directory = "output/build/${source.name}"
+  output_directory   = "output/build/${source.name}"
   #switch_name        = var.hyperv_switch
 }
 
@@ -45,7 +45,7 @@ source "virtualbox-iso" "virtualbox" {
   ssh_timeout              = "60m"
   ssh_username             = var.ssh_username
   virtualbox_version_file  = ".vbox_version"
-  output_directory = "output/build/${source.name}"
+  output_directory         = "output/build/${source.name}"
 }
 
 build {

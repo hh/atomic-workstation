@@ -1,3 +1,3 @@
 packer_cache/
 output/
-vagrant-cloud-token.json
+*.auto.pkrvars.hcl
