@@ -49,8 +49,6 @@ source "virtualbox-iso" "virtualbox" {
 }
 
 build {
-  name = var.vm_name
-
   sources = [
     "source.hyperv-iso.hyperv",
     "source.virtualbox-iso.virtualbox"
