@@ -6,46 +6,47 @@ locals {
 }
 
 source "hyperv-iso" "hyperv" {
-  boot_command       = local.boot_command
-  communicator       = "ssh"
-  cpus               = var.cpus
-  disk_block_size    = 1
-  disk_size          = var.disk_size
-  enable_secure_boot = false
-  generation         = 1
-  http_directory     = "http"
-  iso_checksum       = var.iso_checksum
-  iso_urls           = [var.iso_url]
-  memory             = var.memory
-  shutdown_command   = local.shutdown_command
-  ssh_password       = var.ssh_password
-  ssh_timeout        = "60m"
-  ssh_username       = var.ssh_username
-  output_directory   = "output/build/${source.name}"
-  #switch_name        = var.hyperv_switch
+  cpus                 = var.cpus
+  memory               = var.memory
+  disk_size            = var.disk_size
+  iso_urls             = [var.iso_url]
+  iso_checksum         = var.iso_checksum
+  boot_command         = local.boot_command
+  shutdown_command     = local.shutdown_command
+  http_directory       = "http"
+  communicator         = "ssh"
+  ssh_username         = var.ssh_username
+  ssh_password         = var.ssh_password
+  ssh_timeout          = "60m"
+  output_directory     = "output/build/${source.name}"
+  guest_additions_mode = "disable"
+
+  generation      = 2
+  disk_block_size = 1
+  switch_name     = var.hyperv_switch
 }
 
 source "virtualbox-iso" "virtualbox" {
-  boot_command             = local.boot_command
-  communicator             = "ssh"
-  cpus                     = var.cpus
-  memory                   = var.memory
-  disk_size                = var.disk_size
+  cpus                 = var.cpus
+  memory               = var.memory
+  disk_size            = var.disk_size
+  iso_urls             = [var.iso_url]
+  iso_checksum         = var.iso_checksum
+  boot_command         = local.boot_command
+  shutdown_command     = local.shutdown_command
+  http_directory       = "http"
+  communicator         = "ssh"
+  ssh_username         = var.ssh_username
+  ssh_password         = var.ssh_password
+  ssh_timeout          = "60m"
+  output_directory     = "output/build/${source.name}"
+  guest_additions_mode = "disable"
+
   gfx_controller           = var.virtualbox_gfx_controller
-  guest_additions_mode     = "disable"
-  guest_os_type            = var.virtualbox_guest_os_type
+  guest_os_type            = "Fedora_64"
   hard_drive_discard       = true
   hard_drive_nonrotational = true
-  http_directory           = "http"
-  iso_checksum             = var.iso_checksum
-  iso_urls                 = [var.iso_url]
-  post_shutdown_delay      = local.virtualbox_post_shutdown_delay
-  shutdown_command         = local.shutdown_command
-  ssh_password             = var.ssh_password
-  ssh_timeout              = "60m"
-  ssh_username             = var.ssh_username
   virtualbox_version_file  = ".vbox_version"
-  output_directory         = "output/build/${source.name}"
 }
 
 build {

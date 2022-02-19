@@ -62,16 +62,18 @@ variable "vagrantfile_template" {
   description = "Vagrantfile template"
 }
 
-variable "virtualbox_guest_os_type" {
-  type        = string
-  description = "VM guest type setting (VirtualBox)"
-  default     = "Fedora_64"
-}
-
+# Virtualbox config
 variable "virtualbox_gfx_controller" {
   type        = string
   description = "VirtualBox graphics controller type"
   default     = "vmsvga"
+}
+
+# Hyper-V config
+variable "hyperv_switch" {
+  type        = string
+  description = "Name of the Hyper-V switch"
+  default     = null
 }
 
 # ISO config
