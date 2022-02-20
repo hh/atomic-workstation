@@ -6,6 +6,7 @@ locals {
 }
 
 source "hyperv-iso" "hyperv" {
+  vm_name              = "packer-${source.name}-${var.vm_name}"
   cpus                 = var.cpus
   memory               = var.memory
   disk_size            = var.disk_size
@@ -18,7 +19,7 @@ source "hyperv-iso" "hyperv" {
   ssh_username         = var.ssh_username
   ssh_password         = var.ssh_password
   ssh_timeout          = "60m"
-  output_directory     = "output/build/${source.name}"
+  output_directory     = "output/build/${source.name}-${var.vm_name}"
   guest_additions_mode = "disable"
 
   generation      = 1
@@ -27,6 +28,7 @@ source "hyperv-iso" "hyperv" {
 }
 
 source "virtualbox-iso" "virtualbox" {
+  vm_name              = "packer-${source.name}-${var.vm_name}"
   cpus                 = var.cpus
   memory               = var.memory
   disk_size            = var.disk_size
@@ -39,7 +41,7 @@ source "virtualbox-iso" "virtualbox" {
   ssh_username         = var.ssh_username
   ssh_password         = var.ssh_password
   ssh_timeout          = "60m"
-  output_directory     = "output/build/${source.name}"
+  output_directory     = "output/build/${source.name}-${var.vm_name}"
   guest_additions_mode = "disable"
 
   gfx_controller           = var.virtualbox_gfx_controller
