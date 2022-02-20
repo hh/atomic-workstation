@@ -68,6 +68,7 @@ source "qemu" "qemu" {
   output_directory = "output/build/${source.name}-${var.vm_name}"
 
   accelerator        = var.qemu_accelerator
+  disk_interface     = "virtio-scsi"
   disk_discard       = "unmap"
   disk_detect_zeroes = "unmap"
 }
