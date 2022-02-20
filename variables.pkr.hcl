@@ -76,6 +76,13 @@ variable "hyperv_switch" {
   default     = null
 }
 
+# QEMU config
+variable "qemu_accelerator" {
+  type        = string
+  description = "QEMU accelerator to use"
+  default     = null
+}
+
 # ISO config
 variable "iso_url" {
   type        = string

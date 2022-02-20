@@ -6,44 +6,44 @@ locals {
 }
 
 source "hyperv-iso" "hyperv" {
-  vm_name              = "packer-${source.name}-${var.vm_name}"
-  cpus                 = var.cpus
-  memory               = var.memory
-  disk_size            = var.disk_size
-  iso_urls             = [var.iso_url]
-  iso_checksum         = var.iso_checksum
-  boot_command         = local.boot_command
-  shutdown_command     = local.shutdown_command
-  http_directory       = "http"
-  communicator         = "ssh"
-  ssh_username         = var.ssh_username
-  ssh_password         = var.ssh_password
-  ssh_timeout          = "60m"
-  output_directory     = "output/build/${source.name}-${var.vm_name}"
-  guest_additions_mode = "disable"
+  vm_name          = "packer-${source.name}-${var.vm_name}"
+  cpus             = var.cpus
+  memory           = var.memory
+  disk_size        = var.disk_size
+  iso_urls         = [var.iso_url]
+  iso_checksum     = var.iso_checksum
+  boot_command     = local.boot_command
+  shutdown_command = local.shutdown_command
+  http_directory   = "http"
+  communicator     = "ssh"
+  ssh_username     = var.ssh_username
+  ssh_password     = var.ssh_password
+  ssh_timeout      = "60m"
+  output_directory = "output/build/${source.name}-${var.vm_name}"
 
-  generation      = 1
-  disk_block_size = 1
-  switch_name     = var.hyperv_switch
+  guest_additions_mode = "disable"
+  generation           = 1
+  disk_block_size      = 1
+  switch_name          = var.hyperv_switch
 }
 
 source "virtualbox-iso" "virtualbox" {
-  vm_name              = "packer-${source.name}-${var.vm_name}"
-  cpus                 = var.cpus
-  memory               = var.memory
-  disk_size            = var.disk_size
-  iso_urls             = [var.iso_url]
-  iso_checksum         = var.iso_checksum
-  boot_command         = local.boot_command
-  shutdown_command     = local.shutdown_command
-  http_directory       = "http"
-  communicator         = "ssh"
-  ssh_username         = var.ssh_username
-  ssh_password         = var.ssh_password
-  ssh_timeout          = "60m"
-  output_directory     = "output/build/${source.name}-${var.vm_name}"
-  guest_additions_mode = "disable"
+  vm_name          = "packer-${source.name}-${var.vm_name}"
+  cpus             = var.cpus
+  memory           = var.memory
+  disk_size        = var.disk_size
+  iso_urls         = [var.iso_url]
+  iso_checksum     = var.iso_checksum
+  boot_command     = local.boot_command
+  shutdown_command = local.shutdown_command
+  http_directory   = "http"
+  communicator     = "ssh"
+  ssh_username     = var.ssh_username
+  ssh_password     = var.ssh_password
+  ssh_timeout      = "60m"
+  output_directory = "output/build/${source.name}-${var.vm_name}"
 
+  guest_additions_mode     = "disable"
   gfx_controller           = var.virtualbox_gfx_controller
   guest_os_type            = "Fedora_64"
   hard_drive_discard       = true
@@ -51,10 +51,32 @@ source "virtualbox-iso" "virtualbox" {
   virtualbox_version_file  = ".vbox_version"
 }
 
+source "qemu" "qemu" {
+  vm_name          = "packer-${source.name}-${var.vm_name}"
+  cpus             = var.cpus
+  memory           = var.memory
+  disk_size        = var.disk_size
+  iso_urls         = [var.iso_url]
+  iso_checksum     = var.iso_checksum
+  boot_command     = local.boot_command
+  shutdown_command = local.shutdown_command
+  http_directory   = "http"
+  communicator     = "ssh"
+  ssh_username     = var.ssh_username
+  ssh_password     = var.ssh_password
+  ssh_timeout      = "60m"
+  output_directory = "output/build/${source.name}-${var.vm_name}"
+
+  accelerator        = var.qemu_accelerator
+  disk_discard       = "unmap"
+  disk_detect_zeroes = "unmap"
+}
+
 build {
   sources = [
     "source.hyperv-iso.hyperv",
-    "source.virtualbox-iso.virtualbox"
+    "source.virtualbox-iso.virtualbox",
+    "qemu.qemu",
   ]
 
   provisioner "shell" {

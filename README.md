@@ -25,6 +25,7 @@ OSTree-based Fedora variants:
 ## Providers
 * Virtualbox (`virtualbox`)
 * Hyper-V (experimental) (`hyperv`)
+* QEMU/KVM (experimental) (`qemu`)
 
 ## Building
 Packer needs to be run for a specific box using one of the provided variables files.
