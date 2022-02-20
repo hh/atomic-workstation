@@ -44,13 +44,8 @@ a specific variables file, for example: `make virtualbox/fedora-iot`.
 Hyper-V requires a pre-configured switch with DHCP support; internet access is currently not
 required and is optional. The default switch does **not** work because the host's IP address is not
 detected correctly. You can either use an external switch connected to the primary network interface
-or an internal switch that has a DHCP server running on it.
-
-The name of the switch needs to be passed to the Makefile in the `HYPERV_SWITCH` variable:
-
-```
-$ make HYPERV_SWITCH=external-switch hyperv/all
-```
+or an internal switch that has a DHCP server running on it. Packer will try to create or detect
+a switch automatically. An explicit switch can be passed using the `hyperv_switch` Packer variable.
 
 ## Uploading
 By default, the box files are not uploaded. The following variables control the
