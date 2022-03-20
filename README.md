@@ -37,6 +37,9 @@ needs to be used to limit the providers to build for.
 $ packer build -only="*.virtualbox" -var-file="vars/fedora-iot.pkrvars.hcl" .
 ```
 
+On Linux systems, it may be necessary to set `TMPDIR` to a path not on a tmpfs so
+some steps don't run out of space in `/tmp`. `/var/tmp` can be used instead.
+
 ### Using the Makefile
 The included Makefile provides a target to run Packer for a specific provider using
 a specific variables file, for example: `make virtualbox/fedora-iot`.
