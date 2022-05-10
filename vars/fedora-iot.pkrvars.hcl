@@ -1,9 +1,9 @@
 vm_name = "fedora-iot"
 version_description = "Fedora IoT\n\nhttps://iot.fedoraproject.org/\n\nPacker config: https://github.com/fkrull/atomic-workstation"
 
-os_version = "35.20220101.0"
-iso_checksum = "sha256:f6a0425ef8b00ed51d5b6d4520ac50f9f1a9a4bcfa9654cd930de0f271b8d66f"
-iso_url = "https://dl.fedoraproject.org/pub/alt/iot/35/IoT/x86_64/iso/Fedora-IoT-IoT-ostree-x86_64-35-20220101.0.iso"
+os_version = "36.20220510.0"
+iso_checksum = "sha256:df0b55a1a8280df63531949e90407e6775aae2732be833b2ecb58a1a738bf50b"
+iso_url = "https://dl.fedoraproject.org/pub/alt/iot/36/IoT/x86_64/iso/Fedora-IoT-ostree-x86_64-36-20220510.0.iso"
 
 kickstart = "ks-fedora-iot.cfg"
 ostree_remote = "https://ostree.fedoraproject.org/iot"
