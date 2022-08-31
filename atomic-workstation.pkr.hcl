@@ -1,5 +1,19 @@
 locals {
-  boot_command                   = ["<tab> linux biosdevname=0 inst.text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.kickstart}<enter><enter>"]
+  boot_command_syslinux = [
+    "<tab>",
+    " linux biosdevname=0 inst.text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.kickstart}",
+    "<enter><enter>"
+  ]
+  boot_command_grub2 = [
+    "e",
+    "<down><down><end>",
+    " biosdevname=0 inst.text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.kickstart}",
+    "<leftCtrlOn>x<leftCtrlOff>"
+  ]
+  boot_command = concat(
+    [for s in local.boot_command_syslinux : s if var.iso_bootloader == "syslinux"],
+    [for s in local.boot_command_grub2 : s if var.iso_bootloader == "grub2"],
+  )
   shutdown_command               = "echo ${var.ssh_password} | sudo -S shutdown -h now"
   virtualbox_post_shutdown_delay = "10s"
   execute_command                = "echo vagrant | {{ .Vars }} sudo -E -S bash \"{{ .Path }}\""

@@ -62,6 +62,11 @@ variable "vagrantfile_template" {
   description = "Vagrantfile template"
 }
 
+variable "iso_bootloader" {
+  type        = string
+  description = "The type of bootloader on the ISO (syslinux or grub2)"
+}
+
 # Virtualbox config
 variable "virtualbox_gfx_controller" {
   type        = string
