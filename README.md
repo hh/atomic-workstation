@@ -23,6 +23,7 @@ OSTree-based Fedora variants:
 * [Fedora 37 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora37-silverblue)
 * [Fedora 37 Kinoite](https://app.vagrantup.com/fkrull/boxes/fedora37-kinoite)
 * [Fedora 38 Silverblue](https://app.vagrantup.com/fkrull/boxes/fedora38-silverblue)
+* [Fedora 38 Kinoite](https://app.vagrantup.com/fkrull/boxes/fedora38-kinoite)
 * [Fedora IoT](https://app.vagrantup.com/fkrull/boxes/fedora-iot)
 
 ## Providers
