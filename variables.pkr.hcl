@@ -74,6 +74,12 @@ variable "virtualbox_gfx_controller" {
   default     = "vmsvga"
 }
 
+variable "virtualbox_firmware" {
+  type        = string
+  description = "VirtualBox firmware (bios or efi)"
+  default     = "bios"
+}
+
 # Hyper-V config
 variable "hyperv_switch" {
   type        = string

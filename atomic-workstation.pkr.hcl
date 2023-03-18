@@ -63,6 +63,7 @@ source "virtualbox-iso" "virtualbox" {
   hard_drive_discard       = true
   hard_drive_nonrotational = true
   virtualbox_version_file  = ".vbox_version"
+  firmware                 = var.virtualbox_firmware
   # see https://github.com/hashicorp/packer/issues/12118
   vboxmanage = [
     ["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"],
