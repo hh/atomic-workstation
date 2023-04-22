@@ -7,9 +7,9 @@ https://kinoite.fedoraproject.org/
 Packer config: https://github.com/fkrull/atomic-workstation
 EOF
 
-os_version   = "38.0.20230318"
-iso_checksum = "sha256:f0b127b1149164cd06075cc40f468281838030b6de363ecd5b83fc1be4cd978a"
-iso_url      = "https://dl.fedoraproject.org/pub/fedora/linux/development/38/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-38-20230318.n.0.iso"
+os_version   = "38.1.6"
+iso_checksum = "sha256:5415e61ae43253a61e267aaf21cc62de54ee80f2f0b59351f88feef47dab5eeb"
+iso_url      = "https://dl.fedoraproject.org/pub/fedora/linux/releases/38/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-38-1.6.iso"
 
 kickstart                = "ks-fedora38-kinoite.cfg"
 ostree_remote            = "https://ostree.fedoraproject.org"
