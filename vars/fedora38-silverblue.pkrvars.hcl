@@ -7,9 +7,9 @@ https://silverblue.fedoraproject.org/
 Packer config: https://github.com/fkrull/atomic-workstation
 EOF
 
-os_version   = "38.0.20230318"
-iso_checksum = "sha256:88c792f417444bf09b5d073479803c0c35c53a84b744ceaf89608214dc9bca0d"
-iso_url      = "https://dl.fedoraproject.org/pub/fedora/linux/development/38/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-38-20230318.n.0.iso"
+os_version   = "38.1.6"
+iso_checksum = "sha256:0569d072cddb64fa08773d9f7649f2f1f55a4c04228d47042d405a6a10ffe1c6"
+iso_url      = "https://dl.fedoraproject.org/pub/fedora/linux/releases/38/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-38-1.6.iso"
 
 kickstart                = "ks-fedora38-silverblue.cfg"
 ostree_remote            = "https://ostree.fedoraproject.org"
