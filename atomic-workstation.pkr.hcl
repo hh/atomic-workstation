@@ -85,6 +85,7 @@ source "qemu" "qemu" {
   ssh_password     = var.ssh_password
   ssh_timeout      = "60m"
   output_directory = "output/build/${source.name}-${var.vm_name}"
+  headless         = true
 
   accelerator        = var.qemu_accelerator
   disk_interface     = "virtio-scsi"
@@ -94,8 +95,8 @@ source "qemu" "qemu" {
 
 build {
   sources = [
-    "source.hyperv-iso.hyperv",
-    "source.virtualbox-iso.virtualbox",
+    # "source.hyperv-iso.hyperv",
+    # "source.virtualbox-iso.virtualbox",
     "qemu.qemu",
   ]
 
